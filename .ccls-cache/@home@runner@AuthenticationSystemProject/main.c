@@ -1,6 +1,7 @@
 #include <stdio.h>
-
-int main(void) {
-  printf("Hello World\n");
-  return 0;
+#include <string.h>
+int main(void)
+{
+    //Start of project
+    return 0;
 }
