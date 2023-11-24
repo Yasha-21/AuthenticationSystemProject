@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+
 // function for login
 int login(char Username[], char Password[])
 {
@@ -12,6 +13,7 @@ int login(char Username[], char Password[])
     else
         return 0; // incorrect login
 }
+
 int main(void)
 {
     // variables to store user input
@@ -24,7 +26,6 @@ int main(void)
     scanf("%s", InputPassword);
     // calling function to check login
     int LogginStatus = login(InputName, InputPassword);
-
     // if login successfull print welcome message
     if(LogginStatus)
         printf("Login successfull. Welcome %s\n", InputName);
