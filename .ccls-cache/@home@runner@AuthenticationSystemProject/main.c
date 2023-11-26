@@ -4,29 +4,30 @@
 // struct for binary tree
 struct node
 {
-  int item;
+  char data[20];
   struct node* left;
   struct node* right;
 };
-// norder traversal
+// inorder traversal
 void traversal(struct node* root)
 {
   if (root == NULL) return;
   traversal(root->left);
-  printf("%d ->", root->item);
+  printf("%s ->", root->data);
   traversal(root->right);
 }
-// Create a new Node
-struct node* createNode(value)
+// creating a new Node
+struct node* newNode(char data[])
 {
-  struct node* newNode = malloc(sizeof(struct node));
-  newNode->item = value;
-  newNode->left = NULL;
-  newNode->right = NULL;
-
-  return newNode;
+    // allocate memory for new node
+    struct node* node = (struct node*)malloc(sizeof(struct node));
+    // assign data to this node
+    strcpy(node->data, data);
+    // initialize left and right children as NULL
+    node->left = NULL;
+    node->right = NULL;
+    return (node);
 }
-
 // function for login
 int login(char Username[], char Password[])
 {
