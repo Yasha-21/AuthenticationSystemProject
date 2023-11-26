@@ -1,5 +1,31 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+// struct for binary tree
+struct node
+{
+  int item;
+  struct node* left;
+  struct node* right;
+};
+// norder traversal
+void traversal(struct node* root)
+{
+  if (root == NULL) return;
+  traversal(root->left);
+  printf("%d ->", root->item);
+  traversal(root->right);
+}
+// Create a new Node
+struct node* createNode(value)
+{
+  struct node* newNode = malloc(sizeof(struct node));
+  newNode->item = value;
+  newNode->left = NULL;
+  newNode->right = NULL;
+
+  return newNode;
+}
 
 // function for login
 int login(char Username[], char Password[])
@@ -16,21 +42,6 @@ int login(char Username[], char Password[])
 
 int main(void)
 {
-    // variables to store user input
-    char InputName[20];
-    char InputPassword[20];
-    // printing message and geting user input
-    printf("Enter your username: ");
-    scanf("%s", InputName);
-    printf("Enter your password: ");
-    scanf("%s", InputPassword);
-    // calling function to check login
-    int LogginStatus = login(InputName, InputPassword);
-    // if login successfull print welcome message
-    if(LogginStatus)
-        printf("Login successfull. Welcome %s\n", InputName);
-    // if login unsuccessfull print error message
-    else
-        printf("Error: Incorrect username or password\n");
+    
     return 0;
 }
