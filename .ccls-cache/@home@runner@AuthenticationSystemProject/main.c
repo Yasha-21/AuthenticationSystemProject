@@ -28,6 +28,17 @@ struct node* newNode(char data[])
     node->right = NULL;
     return (node);
 }
+struct node *insert(struct node *node, char data[])
+{
+  // return a new node if the tree is empty
+  if (node == NULL) return newNode(data);
+  // traverse to the right place and insert the node
+  if (data < node->data)
+    node->left = insert(node->left, data);
+  else
+    node->right = insert(node->right, data);
+  return node;
+}
 // function for login
 int login(char Username[], char Password[])
 {
