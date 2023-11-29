@@ -29,25 +29,33 @@ int login()
         return 0;
 }
 // function for registration
-void registration(char Username[], char Password[])
+void registration()
 {
+    char Username[20];
+    char Password[20];
+    printf( "Enter Username: ");
+    scanf("%s", Username);
+    printf( "Enter Password: ");
+    scanf("%s", Password);
     FILE *file = fopen("data.txt", "a");
-    if (file != NULL) {
+    if (file != NULL)
+    {
         fputs(Username, file);
         fputs("\n", file);
         fputs(Password, file);
         fputs("\n", file);
         fclose(file);
-    } else {
-        printf("Error opening the file.\n");
     }
+    else
+        printf("Error opening the file.\n");
 } 
 
 int main(void)
 {
+    registration();
     int answer = login();
     if(answer)
-        printf("Welcome to the chatbot.\n");
+        printf("Welcome to the system.\n");
     else
         printf("Invalid username or password.\n");
     return 0;
